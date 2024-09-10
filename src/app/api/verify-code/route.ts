@@ -42,5 +42,14 @@ export async function POST(request: Request) {
         { status: 400 }
       );
     }
-  } catch (error) {}
+  } catch (error) {
+    console.log("failed to verify code");
+    return Response.json(
+      {
+        success: false,
+        message: "Failed to verify code",
+      },
+      { status: 500 }
+    );
+  }
 }
